@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_dictionary_override">
+    <sys_dictionary_override action="INSERT_OR_UPDATE">
+        <attributes/>
+        <attributes_override>false</attributes_override>
+        <base_table>task</base_table>
+        <calculation/>
+        <calculation_override>false</calculation_override>
+        <default_value/>
+        <default_value_override>false</default_value_override>
+        <dependent/>
+        <dependent_override>false</dependent_override>
+        <display_override>true</display_override>
+        <element>cmdb_ci</element>
+        <mandatory>false</mandatory>
+        <mandatory_override>false</mandatory_override>
+        <name>x_364774_mysource_mysource</name>
+        <read_only>false</read_only>
+        <read_only_override>false</read_only_override>
+        <reference_qual/>
+        <reference_qual_override>false</reference_qual_override>
+        <sys_class_name>sys_dictionary_override</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-25 20:51:38</sys_created_on>
+        <sys_id>4101242e1bfa10108778ed3abc4bcb16</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmdb_ci</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sys_dictionary_override_4101242e1bfa10108778ed3abc4bcb16</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-25 20:51:38</sys_updated_on>
+    </sys_dictionary_override>
+</record_update>

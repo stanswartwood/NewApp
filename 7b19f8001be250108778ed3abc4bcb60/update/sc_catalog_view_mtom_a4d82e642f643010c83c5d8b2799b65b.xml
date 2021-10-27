@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_catalog_view_mtom">
+    <sc_catalog_view_mtom action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <sc_catalog display_value="my custom App">e2c8ea642f643010c83c5d8b2799b6de</sc_catalog>
+        <sys_class_name>sc_catalog_view_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-06-01 21:37:51</sys_created_on>
+        <sys_id>a4d82e642f643010c83c5d8b2799b65b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>my custom App.catalog_my_custom_app</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_portal_page display_value="catalog_my_custom_app">acd8ea642f643010c83c5d8b2799b6e9</sys_portal_page>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sc_catalog_view_mtom_a4d82e642f643010c83c5d8b2799b65b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-06-01 21:37:51</sys_updated_on>
+    </sc_catalog_view_mtom>
+</record_update>

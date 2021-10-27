@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog">
+    <sc_cat_item_catalog action="DELETE">
+        <sc_cat_item display_value="mySource - Learning (formerly OWL)">eacd3dfa1b3a50108778ed3abc4bcba8</sc_cat_item>
+        <sc_catalog display_value="mySource">ecc41e501b2290108778ed3abc4bcbe3</sc_catalog>
+        <sys_class_name>sc_cat_item_catalog</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-26 22:15:10</sys_created_on>
+        <sys_id>fecd313e1b3a50108778ed3abc4bcbb8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource.mySource - Learning (formerly OWL)</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sc_cat_item_catalog_fecd313e1b3a50108778ed3abc4bcbb8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-26 22:15:10</sys_updated_on>
+    </sc_cat_item_catalog>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="mySource">7b19f8001be250108778ed3abc4bcb60</application>
+        <file_path/>
+        <instance_id>98e9d325db163b4052cec59705961924</instance_id>
+        <instance_name>dev88897</instance_name>
+        <name>sc_cat_item_catalog_fecd313e1b3a50108778ed3abc4bcbb8</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_catalog"><sc_cat_item_catalog action="INSERT_OR_UPDATE"><sc_cat_item display_value="mySource - Learning (formerly OWL)">eacd3dfa1b3a50108778ed3abc4bcba8</sc_cat_item><sc_catalog display_value="mySource">ecc41e501b2290108778ed3abc4bcbe3</sc_catalog><sys_class_name>sc_cat_item_catalog</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-08-26 22:15:10</sys_created_on><sys_id>fecd313e1b3a50108778ed3abc4bcbb8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>mySource.mySource - Learning (formerly OWL)</sys_name><sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package><sys_policy/><sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope><sys_update_name>sc_cat_item_catalog_fecd313e1b3a50108778ed3abc4bcbb8</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-08-26 22:15:10</sys_updated_on></sc_cat_item_catalog></record_update>]]></payload>
+        <payload_hash>1249855484</payload_hash>
+        <record_name>mySource.mySource - Learning (formerly OWL)</record_name>
+        <reverted_from/>
+        <source>7319f8001be250108778ed3abc4bcb63</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-26 22:15:10</sys_created_on>
+        <sys_id>36cd313e1b3a50108778ed3abc4bcbbc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1742cd6d47f0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-26 22:15:10</sys_updated_on>
+        <type>Catalog Items Catalog</type>
+        <update_guid>7ecd313e943a5010734b5a0e0e247dbb</update_guid>
+        <update_guid_history>7ecd313e943a5010734b5a0e0e247dbb:1249855484</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="mySource.mySource - Learning (formerly OWL)">ca3e353e1b3a50108778ed3abc4bcb71</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-26 22:17:03</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_catalog">sc_cat_item_catalog</sys_db_object>
+        <sys_id>48bf3605da194d68bfd5c02c4f81db61</sys_id>
+        <sys_metadata>fecd313e1b3a50108778ed3abc4bcbb8</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource.mySource - Learning (formerly OWL)</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_parent display_value="">eacd3dfa1b3a50108778ed3abc4bcba8</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_scope_delete display_value="">02ad0a31c9024c3c800b1a45fd61cca9</sys_scope_delete>
+        <sys_update_name>sc_cat_item_catalog_fecd313e1b3a50108778ed3abc4bcbb8</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_catalog_fecd313e1b3a50108778ed3abc4bcbb8">36cd313e1b3a50108778ed3abc4bcbbc</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-26 22:17:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

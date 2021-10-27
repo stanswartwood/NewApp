@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="dl_definition_rel_match">
+    <dl_definition_rel_match action="INSERT_OR_UPDATE">
+        <dl_definition display_value="mySource">20e4b0f62f91201083c89dacf699b63d</dl_definition>
+        <exact_match>true</exact_match>
+        <matcher_table>x_364774_mysource_stan_data_lookup</matcher_table>
+        <matcher_table_field>configuration_item</matcher_table_field>
+        <source_table>x_364774_mysource_mysource</source_table>
+        <source_table_field>cmdb_ci</source_table_field>
+        <sys_class_name>dl_definition_rel_match</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-12-28 23:34:59</sys_created_on>
+        <sys_id>d625783a2f91201083c89dacf699b67c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cmdb_ci</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>dl_definition_rel_match_d625783a2f91201083c89dacf699b67c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-12-28 23:34:59</sys_updated_on>
+    </dl_definition_rel_match>
+</record_update>

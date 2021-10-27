@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="mySource - Other">95555a901b2290108778ed3abc4bcbb4</sc_cat_item>
+        <sc_category display_value="mySource help">fe31746c1bbe10108778ed3abc4bcbce</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-19 16:55:14</sys_created_on>
+        <sys_id>0071746c1bbe10108778ed3abc4bcb44</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource help.mySource - Create mySource ticket</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sc_cat_item_category_0071746c1bbe10108778ed3abc4bcb44</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-19 16:55:14</sys_updated_on>
+    </sc_cat_item_category>
+</record_update>

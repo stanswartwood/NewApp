@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Approval engine to use for the kb_feedback_task table.  Valid options are: 'approval_rules' to use Approval Rules, 'process_guide' to use Process Guides and 'off' to turn off the approval engines for the table (set to 'off' when using Workflow to manage approvals). Off is the default setting.</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>glide.approval_engine.kb_feedback_task</name>
+        <read_roles/>
+        <suffix>x_364774_mysource</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-12 21:05:03</sys_created_on>
+        <sys_id>db772d561baa94108778ed3abc4bcb63</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>glide.approval_engine.kb_feedback_task</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sys_properties_db772d561baa94108778ed3abc4bcb63</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-12 21:05:03</sys_updated_on>
+        <type>string</type>
+        <value>off</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=db772d561baa94108778ed3abc4bcb63"/>
+</record_update>

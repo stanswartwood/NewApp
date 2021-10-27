@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" extends="task" label="mySource" max_length="40" name="x_364774_mysource_mysource" sizeclass="85" type="collection">
+        <element attributes="encode_utf8=false" label="Caller" max_length="32" name="u_caller" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Incident" max_length="32" name="u_incident" reference="incident" type="reference"/>
+    </element>
+</database>

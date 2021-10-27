@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>catalog_mysource</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-06 19:15:06</sys_created_on>
+        <sys_id>4ac4d6501b2290108778ed3abc4bcb87</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource View</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sys_ui_view_4ac4d6501b2290108778ed3abc4bcb87</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-06 19:15:06</sys_updated_on>
+        <title>mySource View</title>
+        <user/>
+    </sys_ui_view>
+</record_update>

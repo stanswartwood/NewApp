@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new_set">
+    <item_option_new_set action="DELETE">
+        <create_roles/>
+        <description/>
+        <display_title>false</display_title>
+        <internal_name>configuration_item_vs</internal_name>
+        <layout>normal</layout>
+        <name/>
+        <order>100</order>
+        <read_roles/>
+        <set_attributes/>
+        <sys_class_name>item_option_new_set</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:19:46</sys_created_on>
+        <sys_id>6f533eb91b6a54108778ed3abc4bcb44</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Configuration Item</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>item_option_new_set_6f533eb91b6a54108778ed3abc4bcb44</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:19:46</sys_updated_on>
+        <title>Configuration Item</title>
+        <type>one_to_one</type>
+        <write_roles/>
+    </item_option_new_set>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="mySource">7b19f8001be250108778ed3abc4bcb60</application>
+        <file_path/>
+        <instance_id>98e9d325db163b4052cec59705961924</instance_id>
+        <instance_name>dev88897</instance_name>
+        <name>item_option_new_set_6f533eb91b6a54108778ed3abc4bcb44</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new_set"><item_option_new_set action="INSERT_OR_UPDATE"><create_roles/><description/><display_title>false</display_title><internal_name>configuration_item_vs</internal_name><layout>normal</layout><name/><order>100</order><read_roles/><set_attributes/><sys_class_name>item_option_new_set</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-08-11 13:19:46</sys_created_on><sys_id>6f533eb91b6a54108778ed3abc4bcb44</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Configuration Item</sys_name><sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package><sys_policy/><sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope><sys_update_name>item_option_new_set_6f533eb91b6a54108778ed3abc4bcb44</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-08-11 13:19:46</sys_updated_on><title>Configuration Item</title><type>one_to_one</type><write_roles/></item_option_new_set></record_update>]]></payload>
+        <payload_hash>-1346233582</payload_hash>
+        <record_name>Configuration Item</record_name>
+        <reverted_from/>
+        <source>7319f8001be250108778ed3abc4bcb63</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:19:46</sys_created_on>
+        <sys_id>f563fab91b6a54108778ed3abc4bcb6c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>173ddad44940000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:19:46</sys_updated_on>
+        <type>Variable Set</type>
+        <update_guid>3163fab91e6a54108946f1b18aa5106c</update_guid>
+        <update_guid_history>3163fab91e6a54108946f1b18aa5106c:-1346233582</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Configuration Item">ba9372f91b6a54108778ed3abc4bcb0c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:20:39</sys_created_on>
+        <sys_db_object display_value="" name="item_option_new_set">item_option_new_set</sys_db_object>
+        <sys_id>1f5050599c634d5c94642bfc1399fd90</sys_id>
+        <sys_metadata>6f533eb91b6a54108778ed3abc4bcb44</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Configuration Item</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_scope_delete display_value="">02ad0a31c9024c3c800b1a45fd61cca9</sys_scope_delete>
+        <sys_update_name>item_option_new_set_6f533eb91b6a54108778ed3abc4bcb44</sys_update_name>
+        <sys_update_version display_value="item_option_new_set_6f533eb91b6a54108778ed3abc4bcb44">f563fab91b6a54108778ed3abc4bcb6c</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:20:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

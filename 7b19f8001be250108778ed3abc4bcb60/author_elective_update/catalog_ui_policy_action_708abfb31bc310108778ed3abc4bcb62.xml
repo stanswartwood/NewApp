@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="DELETE">
+        <catalog_item display_value="mySource - Integrations">5b4ef53e1b3a50108778ed3abc4bcbae</catalog_item>
+        <catalog_variable>IO:09ab0b371b4310108778ed3abc4bcbe0</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-11 20:09:51</sys_created_on>
+        <sys_id>708abfb31bc310108778ed3abc4bcb62</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>address</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_708abfb31bc310108778ed3abc4bcb62</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-11 20:09:51</sys_updated_on>
+        <table/>
+        <ui_policy display_value="hide address 1">276ab7b31bc310108778ed3abc4bcb64</ui_policy>
+        <variable>address</variable>
+        <variable_set/>
+        <visible>false</visible>
+    </catalog_ui_policy_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="mySource">7b19f8001be250108778ed3abc4bcb60</application>
+        <file_path/>
+        <instance_id>98e9d325db163b4052cec59705961924</instance_id>
+        <instance_name>dev88897</instance_name>
+        <name>catalog_ui_policy_action_708abfb31bc310108778ed3abc4bcb62</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action"><catalog_ui_policy_action action="INSERT_OR_UPDATE"><catalog_item display_value="mySource - Integrations">5b4ef53e1b3a50108778ed3abc4bcbae</catalog_item><catalog_variable>IO:09ab0b371b4310108778ed3abc4bcbe0</catalog_variable><cleared>false</cleared><disabled>ignore</disabled><field/><mandatory>ignore</mandatory><order>100</order><sys_class_name>catalog_ui_policy_action</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-09-11 20:09:51</sys_created_on><sys_id>708abfb31bc310108778ed3abc4bcb62</sys_id><sys_mod_count>0</sys_mod_count><sys_name>address</sys_name><sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package><sys_policy/><sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope><sys_update_name>catalog_ui_policy_action_708abfb31bc310108778ed3abc4bcb62</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-09-11 20:09:51</sys_updated_on><table/><ui_policy display_value="hide address 1">276ab7b31bc310108778ed3abc4bcb64</ui_policy><variable>address</variable><variable_set/><visible>false</visible></catalog_ui_policy_action></record_update>]]></payload>
+        <payload_hash>-1552072147</payload_hash>
+        <record_name>address</record_name>
+        <reverted_from/>
+        <source>7319f8001be250108778ed3abc4bcb63</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-11 20:09:51</sys_created_on>
+        <sys_id>cf8abfb31bc310108778ed3abc4bcbb6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1747ec9d6de0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-11 20:09:51</sys_updated_on>
+        <type>Catalog UI Policy Action</type>
+        <update_guid>0b8abfb31dc3101080e7142ab84bebb6</update_guid>
+        <update_guid_history>0b8abfb31dc3101080e7142ab84bebb6:-1552072147</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="address">142bb3b31bc310108778ed3abc4bcb69</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-11 20:12:23</sys_created_on>
+        <sys_db_object display_value="" name="catalog_ui_policy_action">catalog_ui_policy_action</sys_db_object>
+        <sys_id>03aa742a32df4f38800fb860357dadb9</sys_id>
+        <sys_metadata>708abfb31bc310108778ed3abc4bcb62</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>address</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_scope_delete display_value="">02ad0a31c9024c3c800b1a45fd61cca9</sys_scope_delete>
+        <sys_update_name>catalog_ui_policy_action_708abfb31bc310108778ed3abc4bcb62</sys_update_name>
+        <sys_update_version display_value="catalog_ui_policy_action_708abfb31bc310108778ed3abc4bcb62">cf8abfb31bc310108778ed3abc4bcbb6</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-11 20:12:23</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

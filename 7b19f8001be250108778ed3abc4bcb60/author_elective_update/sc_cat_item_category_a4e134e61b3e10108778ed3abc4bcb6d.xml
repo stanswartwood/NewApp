@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="DELETE">
+        <sc_cat_item display_value="mySource - Create Incident">fd05d2901b2290108778ed3abc4bcbc8</sc_cat_item>
+        <sc_category display_value="mySource Incidents">719174a61b3e10108778ed3abc4bcb22</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-25 22:05:02</sys_created_on>
+        <sys_id>a4e134e61b3e10108778ed3abc4bcb6d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource Incidents.mySource - Create Incident</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sc_cat_item_category_a4e134e61b3e10108778ed3abc4bcb6d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-25 22:05:02</sys_updated_on>
+    </sc_cat_item_category>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="mySource">7b19f8001be250108778ed3abc4bcb60</application>
+        <file_path/>
+        <instance_id>98e9d325db163b4052cec59705961924</instance_id>
+        <instance_name>dev88897</instance_name>
+        <name>sc_cat_item_category_a4e134e61b3e10108778ed3abc4bcb6d</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category"><sc_cat_item_category action="INSERT_OR_UPDATE"><sc_cat_item display_value="mySource - Create Incident">fd05d2901b2290108778ed3abc4bcbc8</sc_cat_item><sc_category display_value="mySource Incidents">719174a61b3e10108778ed3abc4bcb22</sc_category><sys_class_name>sc_cat_item_category</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-08-25 22:05:02</sys_created_on><sys_id>a4e134e61b3e10108778ed3abc4bcb6d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>mySource Incidents.mySource - Create Incident</sys_name><sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package><sys_policy/><sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope><sys_update_name>sc_cat_item_category_a4e134e61b3e10108778ed3abc4bcb6d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-08-25 22:05:02</sys_updated_on></sc_cat_item_category></record_update>]]></payload>
+        <payload_hash>-463945525</payload_hash>
+        <record_name>mySource Incidents.mySource - Create Incident</record_name>
+        <reverted_from/>
+        <source>7319f8001be250108778ed3abc4bcb63</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-25 22:05:02</sys_created_on>
+        <sys_id>ece134e61b3e10108778ed3abc4bcb6f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17427a730130000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-25 22:05:02</sys_updated_on>
+        <type>Catalog Item Category</type>
+        <update_guid>28e134e66f3e1010e8c57ebdeffe0a6f</update_guid>
+        <update_guid_history>28e134e66f3e1010e8c57ebdeffe0a6f:-463945525</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="mySource Incidents.mySource - Create Incident">83c7243a1b7650108778ed3abc4bcb75</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-26 15:59:28</sys_created_on>
+        <sys_db_object display_value="" name="sc_cat_item_category">sc_cat_item_category</sys_db_object>
+        <sys_id>6ef1f3227716480cbcc2b77fe10b3de4</sys_id>
+        <sys_metadata>a4e134e61b3e10108778ed3abc4bcb6d</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource Incidents.mySource - Create Incident</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_parent display_value="mySource - Login issue">fd05d2901b2290108778ed3abc4bcbc8</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_scope_delete display_value="">02ad0a31c9024c3c800b1a45fd61cca9</sys_scope_delete>
+        <sys_update_name>sc_cat_item_category_a4e134e61b3e10108778ed3abc4bcb6d</sys_update_name>
+        <sys_update_version display_value="sc_cat_item_category_a4e134e61b3e10108778ed3abc4bcb6d">ece134e61b3e10108778ed3abc4bcb6f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-26 15:59:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

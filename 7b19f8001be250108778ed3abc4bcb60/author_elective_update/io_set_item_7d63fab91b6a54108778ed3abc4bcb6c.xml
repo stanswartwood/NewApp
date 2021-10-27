@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item">
+    <io_set_item action="DELETE">
+        <order>100</order>
+        <sc_cat_item display_value="mySource - Create mySource ticket">95555a901b2290108778ed3abc4bcbb4</sc_cat_item>
+        <sys_class_name>io_set_item</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:19:46</sys_created_on>
+        <sys_id>7d63fab91b6a54108778ed3abc4bcb6c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Configuration Item.mySource - Create mySource ticket</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>io_set_item_7d63fab91b6a54108778ed3abc4bcb6c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:19:46</sys_updated_on>
+        <variable_set display_value="Configuration Item">6f533eb91b6a54108778ed3abc4bcb44</variable_set>
+    </io_set_item>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="mySource">7b19f8001be250108778ed3abc4bcb60</application>
+        <file_path/>
+        <instance_id>98e9d325db163b4052cec59705961924</instance_id>
+        <instance_name>dev88897</instance_name>
+        <name>io_set_item_7d63fab91b6a54108778ed3abc4bcb6c</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="io_set_item"><io_set_item action="INSERT_OR_UPDATE"><order>100</order><sc_cat_item display_value="mySource - Create mySource ticket">95555a901b2290108778ed3abc4bcbb4</sc_cat_item><sys_class_name>io_set_item</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2020-08-11 13:19:46</sys_created_on><sys_id>7d63fab91b6a54108778ed3abc4bcb6c</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Configuration Item.mySource - Create mySource ticket</sys_name><sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package><sys_policy/><sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope><sys_update_name>io_set_item_7d63fab91b6a54108778ed3abc4bcb6c</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2020-08-11 13:19:46</sys_updated_on><variable_set display_value="Configuration Item">6f533eb91b6a54108778ed3abc4bcb44</variable_set></io_set_item></record_update>]]></payload>
+        <payload_hash>-1486882129</payload_hash>
+        <record_name>Configuration Item.mySource - Create mySource ticket</record_name>
+        <reverted_from/>
+        <source>7319f8001be250108778ed3abc4bcb63</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:19:47</sys_created_on>
+        <sys_id>ce63fab91b6a54108778ed3abc4bcb71</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>173ddad45510000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:19:47</sys_updated_on>
+        <type>Catalog Variable Set</type>
+        <update_guid>0a63fab9f76a5410701c58951768ff71</update_guid>
+        <update_guid_history>0a63fab9f76a5410701c58951768ff71:-1486882129</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Configuration Item.mySource - Create mySource ticket">7e9372f91b6a54108778ed3abc4bcb06</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-11 13:20:39</sys_created_on>
+        <sys_db_object display_value="" name="io_set_item">io_set_item</sys_db_object>
+        <sys_id>10f1448c3670452ca0410617e77ae724</sys_id>
+        <sys_metadata>7d63fab91b6a54108778ed3abc4bcb6c</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Configuration Item.mySource - Create mySource ticket</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_scope_delete display_value="">02ad0a31c9024c3c800b1a45fd61cca9</sys_scope_delete>
+        <sys_update_name>io_set_item_7d63fab91b6a54108778ed3abc4bcb6c</sys_update_name>
+        <sys_update_version display_value="io_set_item_7d63fab91b6a54108778ed3abc4bcb6c">ce63fab91b6a54108778ed3abc4bcb71</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-11 13:20:39</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-12-28 23:25:45</sys_created_on>
+        <sys_id>2113f8b62f91201083c89dacf699b6ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_364774_mysource_stan_data_lookup.x_364774_mysource.my_source</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_security_acl display_value="x_364774_mysource_stan_data_lookup">a113f8b62f91201083c89dacf699b6ea</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_2113f8b62f91201083c89dacf699b6ee</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-12-28 23:25:45</sys_updated_on>
+        <sys_user_role display_value="x_364774_mysource.my_source" name="x_364774_mysource.my_source">09e45c8a1b6e54108778ed3abc4bcb4b</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

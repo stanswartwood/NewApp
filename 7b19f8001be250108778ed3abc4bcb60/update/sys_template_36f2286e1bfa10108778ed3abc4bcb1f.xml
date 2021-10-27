@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_template">
+    <sys_template action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <global>false</global>
+        <group/>
+        <groups/>
+        <link_element/>
+        <name>mySource - Oboarding</name>
+        <next/>
+        <next_child/>
+        <roles/>
+        <short_description/>
+        <show_on_template_bar>true</show_on_template_bar>
+        <stand_alone>false</stand_alone>
+        <sys_class_name>sys_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-08-25 20:59:55</sys_created_on>
+        <sys_id>36f2286e1bfa10108778ed3abc4bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mySource - Oboarding</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sys_template_36f2286e1bfa10108778ed3abc4bcb1f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-08-25 20:59:55</sys_updated_on>
+        <table>x_364774_mysource_mysource</table>
+        <template>cmdb_ci=f3bd173f1be690108778ed3abc4bcbd9^assignment_group=8fb2d04a1b6e54108778ed3abc4bcbe6^EQ</template>
+        <user display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</user>
+        <view/>
+    </sys_template>
+</record_update>

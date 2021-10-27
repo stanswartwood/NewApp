@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="mySource Search">3a1d4a4c1b2310108778ed3abc4bcb4a</child>
+        <cloned>2020-09-24 17:05:52</cloned>
+        <last_validated>2020-09-24 17:05:52</last_validated>
+        <parent display_value="Faceted Search">12fbe2d287330300a785940307cb0b1b</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category&gt;standard&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[function ($scope, $sce, $location, spUtil, $element, $timeout, $rootScope, spFacetsClientService, spFacetManager, $window, spAriaUtil) {
+	var url = null;
+
+	spUtil.setSearchPage($scope.data.t);
+	$scope.isLoading = true;
+	$scope.isFilterMenuLoading = true;
+	$scope.showPagination = false;
+	$scope.showFilterMenu = false;
+	$scope.isFilterApplied = spFacetManager.isAnyFacetSelected();
+	$scope.showApply = false;
+	$scope.collpaseFacets = !$scope.data.t || $scope.data.t == "" ;
+
+	$scope.getBGImage = function(item) {
+		return {"background-image": "url('" + item.picture + "')"};
+	}
+
+	$scope.search = function(searchTerm) {
+		$location.search('q', searchTerm);
+	}
+
+	$scope.clearAll = function () {
+		spFacetManager.clearAllFacet();
+		$scope.isFilterApplied = false;
+	}
+
+	$scope.fetchMoreResults = function(query_start_location) {
+		fetch(query_start_location);
+	}
+
+	$scope.openFilterMenu = function() {
+		url = $location.url();
+		$scope.showApply = false;
+		$scope.showFilterMenu = true;
+	}
+
+	$scope.cancel = function () {
+		if(url) {
+			$location.url(url);
+		}
+    $scope.showFilterMenu = false;
+	}
+
+	$scope.apply = function () {
+		$scope.showFilterMenu = false;
+	}
+
+	fetch(0);
+
+	$scope.$on('$locationChangeSuccess', onLocationChangeSuccess);
+
+	$scope.highlight = function(haystack, needle) {
+		if (!haystack)
+			return "";
+
+		if (!needle)
+			return haystack;
+
+		return haystack.replace(new RegExp(needle.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1"), "gi"), function(match) {
+			return '&lt;span class="highlight mark"&gt;' + match + '&lt;/span&gt;';
+		});
+	}
+
+	$scope.smallScreenSize = isSmallScreenSize();
+
+	function isSmallScreenSize() {
+		return $window.matchMedia('(max-width: 767px)').matches;
+	}
+
+	angular.element($window).on('resize', function () {
+		$scope.smallScreenSize = isSmallScreenSize();
+	});
+
+	function onLocationChangeSuccess(event, newUrl, oldUrl) {
+		if (pageChanged(newUrl, oldUrl))
+			return;
+
+		try {
+			var oldQuery = new URL(oldUrl).searchParams.get("q");
+			var newQuery = new URL(newUrl).searchParams.get("q");
+			if (oldQuery === newQuery)
+				$window.spSearchAnalytics = { refinement_occurred : true };
+		} catch(e) {}
+		fetch();
+	}
+
+	// Event delegation for Updating click rank
+	$(".panel").on('click', '.result-item a', function(e) {
+		var index = $(e.currentTarget).parent().parent().data('index');
+		TextSearchAnalyticsUpdateRank(index+1);
+	});
+
+	function TextSearchAnalyticsUpdateRank(rank) {
+		if (!rank || rank &lt; 1) return ;
+		var c = $scope.c;
+		var payloadObject = {
+			action: "GlideSPSearchAnalytics",
+			payload: {
+				query: c.data.q,
+				portal_id: c.data.portalID,
+				click_rank: rank
+			}
+		};
+		c.server.get(payloadObject);
+	}
+
+	function getSearchSources($scope) {
+		var c = $scope.c;
+		var sources = {};
+		Object.keys(c.data.searchSources).map(function(key) {
+			if (!c.data.t)
+				sources[key] = 0;
+			else
+				sources[c.data.t] = 0;
+		});
+		$scope.results.map(function(item) {
+			var sourceId = _.get(item, '__search_source_id__');
+			if(sources[sourceId])
+				sources[sourceId]++;
+			else
+				sources[sourceId] = 1;
+		});
+		var searchSources = [];
+		Object.keys(sources).map(function(key) {
+			var source_id = c.data.searchSourceConfiguration[key];
+			searchSources.push({
+				source_id: source_id,
+				number_of_results: sources[key]
+			});
+		});
+		return searchSources;
+	}
+
+	function TextSearchAnalyticsDirect() {
+		var c = $scope.c;
+		var refinement_occurred = _.get($window, 'spSearchAnalytics.refinement_occurred', false);
+
+		var payload =  {
+			query: c.data.q,
+			portal_id: c.data.portalID,
+			page_id: _.get($window, 'spSearchAnalytics.page_id', $scope.page.id),
+			refinement_occurred: refinement_occurred
+		}
+
+		if (!refinement_occurred) {
+			payload.results_per_source = getSearchSources($scope);
+		}
+
+		var payloadObject = {
+			action: "GlideSPSearchAnalytics",
+			payload: payload
+		};
+
+		c.server.get(payloadObject);
+
+		$window.spSearchAnalytics = {
+			refinement_occurred: false
+		}
+	}
+
+	function pageChanged(newUrl, oldUrl) {
+		var newUrlParams = newUrl.match(/id=.+/),
+		oldUrlParams = oldUrl.match(/id=.+/);
+
+		if(!newUrlParams &amp;&amp; !oldUrlParams) {
+			return false;
+		}
+
+		if((!newUrlParams &amp;&amp; oldUrlParams) || (newUrlParams &amp;&amp; !oldUrlParams)) {
+			return true;
+		}
+
+		return newUrlParams[0].split("&amp;")[0] !== oldUrlParams[0].split("&amp;")[0];
+	}
+
+	function fetch(query_start_location) {
+		$scope.isLoading = true;
+		$scope.isFilterMenuLoading = true;
+		$scope.showApply = true;
+		var urlParams = $location.search();
+
+		$scope.limit = urlParams.t &amp;&amp; urlParams.t !== "" ? $scope.data.limit_group : $scope.data.limit_all;
+		$scope.data.q = urlParams.q;
+
+		var	params = {
+					query: urlParams.q,
+					query_start_location: query_start_location,
+					count: $scope.limit,
+					source: urlParams.t,
+					portal: $rootScope.portal_id,
+					page : $rootScope.page.sys_id,
+					include_facets: false
+				},
+				additionalQuery = getAdditionalQuery(urlParams);
+
+		if(!isAllSearchSource(urlParams)) {
+			$scope.collpaseFacets = false;
+			if($scope.data.searchSources[urlParams.t]) {
+				$scope.t_label = $scope.data.searchSources[urlParams.t].name;
+			}
+			$scope.showFilterIcon = true;
+		} else {
+			$scope.t_label = "${All}";
+			$scope.showFilterIcon = false;
+			$scope.collpaseFacets = true;
+		}
+
+		if ($scope.options.show_did_you_mean == "true")
+			params.include_suggestions = true;
+
+		if(urlParams.t &amp;&amp; urlParams.t !== "" &amp;&amp; additionalQuery !== "") {
+			params.additionalQuery = additionalQuery;
+		}
+
+		spFacetsClientService.search(params).then(function(response) {
+			var searchResults = response.data.result.results.map(function(result) {
+				result.templateID = "sp-search-source-" + result.__search_source_id__ + ".html";
+				return result;
+			});
+			var nextFocusIndex = 0;
+			if(query_start_location &gt; 0) {
+				$scope.results = $scope.results.concat(searchResults);
+				nextFocusIndex = $scope.results.length - searchResults.length;
+			} else {
+				$scope.results = searchResults;
+			}
+
+			$scope.isLoading = false;
+
+			if (response.data.result.pagination_supported) {
+				generatePagination(searchResults, nextFocusIndex);
+			} else {
+				$scope.showPagination = false;
+			}
+
+			if (response.data.result.suggestions)
+				$scope.data.suggestions = response.data.result.suggestions;
+
+			TextSearchAnalyticsDirect();
+		});
+
+		var paramsCopy = JSON.parse(JSON.stringify(params))
+		paramsCopy.include_facets = true;
+		paramsCopy.include_suggestions = false;
+
+		spFacetsClientService.search(paramsCopy).then(function(response) {
+			$scope.isFilterMenuLoading = false;
+			if (!response.data.result.pagination_supported) {
+				$scope.endPagination = getEndPagination(response.data.result.results, hasFacet(response.data.result.facets, params.source));
+			}
+		});
+
+		$scope.isFilterApplied = spFacetManager.isAnyFacetSelected();
+
+		if (!query_start_location &amp;&amp; spAriaUtil.isAccessibilityEnabled())
+			setFocusSearchResult();
+	}
+
+	spFacetManager.subscribe("spFacets.refresh.data", "Pills", onFacetsData);
+
+	function isAllSearchSource(urlParams) {
+		return !urlParams.t || urlParams.t == "";
+	}
+
+	function setFocusSearchResult() {
+		$timeout(function() {
+			var element = $element.find(".results-heading")[0];
+			if(element) {
+				element = angular.element(element);
+				element.focus();
+			}
+		}, 2500);
+	}
+
+	function setFocusNextItem(index) {
+		$timeout(function() {
+			var element = $element.find(".result-item")[index];
+			if(element) {
+				element = element.querySelector("a");
+				element = angular.element(element);
+				element.focus();
+			}
+		}, 500);
+	}
+
+	function generatePagination(results, previousIndex) {
+			var last = results[results.length-1];
+			$scope.showPagination = true;
+			$scope.showLoadMore= last &amp;&amp; !last.isLastResult;
+
+		if(last &amp;&amp; last.query_location != undefined) {
+				$scope.query_start_location = last.query_location + 1;
+			} else {
+				$scope.query_start_location = 0;
+			}
+
+		  if(previousIndex &gt; 0) {
+				setFocusNextItem(previousIndex);
+			}
+	}
+
+	function hasFacet(facets, searchSource) {
+		if(searchSource &amp;&amp; searchSource !== "") {
+			return facets  &amp;&amp; facets[searchSource] &amp;&amp; facets[searchSource].length &gt; 0
+		} else {
+			for(var key in facets) {
+				if(facets[key].length &gt; 0) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function getEndPagination(results, hasFacet) {
+		if(results.length &gt;= $scope.limit) {
+			if(hasFacet) {
+				return "${Results are limited to }" + $scope.limit + "${ items per search. Try using filters or more specific keywords.}";
+			}
+			return "${Results are limited to }" + $scope.limit + "${ items per search. Try using more specific keywords.}";
+		}
+
+		return "${End of results}";
+	}
+
+	function getAdditionalQuery(params) {
+		var paramsCopy = _.clone(params);
+
+		delete paramsCopy.q;
+		delete paramsCopy.t;
+		delete paramsCopy.id;
+		delete paramsCopy.spa;
+
+		if (_.isEmpty(paramsCopy))
+			return "";
+
+		for(var key in paramsCopy) {
+			if(paramsCopy.hasOwnProperty(key))
+				paramsCopy[key] = processURLProperty(paramsCopy[key]);
+		}
+
+		return paramsCopy;
+	}
+
+	function propertyIsArray(prop) {
+		return prop.charAt(0) === '[' &amp;&amp; prop.charAt(prop.length - 1) === ']';
+	}
+
+	function processURLProperty(property) {
+		if (propertyIsArray(property)) {
+			var properties = property.substring(1, property.length - 1).split(",");
+			properties = properties.map(function(prop) {
+				return prop.split("%2C").join(",");
+			});
+			return properties;
+		} else {
+			return property;
+		}
+	}
+
+	function findItems(facet, key, valueArr) {
+		if (!Array.isArray(valueArr))
+			valueArr = [valueArr];
+
+		var items = facet.items.filter(function(item) {
+			return valueArr.some(function(value) {
+				return value === item.value;
+			})
+		});
+
+		if(items &amp;&amp; items.length &gt; 0) {
+			return items;
+		}
+
+		return null;
+	}
+
+	function findFacet(facets, key) {
+		var f = null;
+		if(facets &amp;&amp; facets.length &gt; 0) {
+			f = facets.filter(function(d) {
+					return d.id === key;
+			});
+		}
+
+		if(f &amp;&amp; f.length &gt; 0) {
+			return f[0];
+		}
+
+		return null;
+	}
+
+	function onFacetsData(params) {
+		var query = params.query,
+				facets = params.data[query.t],
+				pills = {};
+
+		var keys = Object.keys(query);
+		keys.forEach(function(k) {
+
+			var facet = findFacet(facets, k);
+			if(facet) {
+				var items = findItems(facet, k, processURLProperty(query[k]));
+				if(items) {
+					items.forEach(function(item) {
+						if(!pills[item.label]) {
+							pills[item.label] = {id: k, label: item.label, facet: facet, item: item};
+						} else {
+							//update previous pill
+							updatPreviousPill(pills, item.label);
+							//add current pill
+							var label = getLabel(facet, item);
+							pills[label] = {id: k, label: label, facet: facet, item: item};
+						}
+					});
+				}
+			}
+		});
+		$scope.data.pills = _.values(pills);
+	}
+
+	function getLabel(facet, item) {
+		return item.label + " (" + facet.label + ")";
+	}
+
+	function updatPreviousPill(pills, label) {
+		var previous = pills[label],
+				updatedLabel = getLabel(previous.facet, previous.item);
+		previous.label = updatedLabel;
+		pills[updatedLabel] = previous;
+		delete pills[label];
+	}
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.header {
+	padding: 10px;
+}
+
+button.toggle-icon {
+  background-color: transparent;
+}
+
+a.question-tag {
+  color: #39739d;
+  background-color: #e1ecf4;
+  border: 1px solid #e1ecf4;
+  display: inline-block;
+  margin: 4px 4px 4px 0;
+  border-radius: 0;
+  text-align: center;
+  line-height: 1;
+  padding: .4em .5em;
+}
+
+.loading-icon {
+  text-align: center;
+  padding: 30px;
+}
+
+.loading-icon div {
+  padding: 10px;
+}
+
+.pagination-section {
+	text-align: center;
+}
+
+.panel-title:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.search-header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.pills {
+  display: flex;
+}
+
+.pills-label {
+  min-width: 80px;
+  margin-top: 5px;
+}
+
+h2 {
+  display: inline-block;
+}
+
+.btn-link {
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex h2 {
+  word-break: break-word;
+}
+
+.search-result-xs {
+  margin: 0 -7px 0 -8px;
+}
+
+.search-overlay {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  border-left: 0;
+  border-right: 0;
+  margin-top: -1rem;
+  background: #FFF;
+}
+
+.search-filter-menu {
+  z-index: 3 !important;
+  opacity: 0.9;
+  height: 100vh;
+}
+
+.search-overlay .header {
+  text-align: center;
+}
+
+.filter-icon {
+  color: #717171;
+}
+
+.disabled {
+  color: #ddd;
+}
+
+.results-heading {
+  padding-top: 3px;
+  padding-bottom: 2px;
+}
+
+.results-heading:focus {
+  outline: none;
+}
+
+.facet-pill-container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.sc {
+  i.ta-icon, i.ta-img {
+    width: 30px;
+    height: 30px;
+    line-height: 20px;
+    background-size: contain;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-align: center;
+    float:left;
+    padding-right: 8px;
+  }
+}
+&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;faceted_search&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function(scope, elem) {
+	var lazyLoader = $injector.get("lazyLoader");
+	lazyLoader.putTemplates(scope.data.resultTemplates);
+}]]&gt;&lt;/link&gt;&lt;name&gt;Faceted Search&lt;/name&gt;&lt;option_schema&gt;[{"hint":"Maximum number of search results when not specifying a search group (default 30)","name":"max_all","section":"Behavior","label":"Max results for All search","type":"integer"},{"hint":"Maximum number of search results when specifying a search group (default 15)","name":"max_group","section":"Behavior","label":"Max results for single search source","type":"integer"},{"name":"show_did_you_mean","default_value":"false","section":"Behavior","label":"Show Did You Mean","type":"boolean"},{"name":"facet_list_title","section":"Presentation","default_value":"FILTERS","label":"Facet List Title","type":"string"},{"name":"title","section":"Presentation","label":"Typeahead Search - Title","type":"string"},{"name":"color","section":"Presentation","label":"Typeahead Search - Color","type":"string"},{"name":"glyph","section":"Presentation","label":"Typeahead Search - Glyph","type":"string"},{"name":"size","section":"Presentation","label":"Typeahead Search - Size","type":"string"},{"hint":"Number of typeahead search results returned (default 15)","name":"limit","section":"Behavior","label":"Typeahead Search - Limit","type":"integer"},{"name":"show_typeahead_search","section":"Presentation","default_value":"true","label":"Show Typeahead Search Box","type":"boolean"}]&lt;/option_schema&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[if (input &amp;&amp; input.action === "GlideSPSearchAnalytics") {
+	input.action = "";
+	var textSearchAnalytics = new GlideSPSearchAnalytics().publish(JSON.stringify(input.payload));
+	return ;
+}
+
+data.showPrices = $sp.showCatalogPrices();
+data.q = $sp.getParameter('q');
+data.t = $sp.getParameter('t');
+data.searchSources = {};
+data.resultTemplates = {};
+data.searchSourceConfiguration = {};
+
+options.refresh_page_on_search_submission = false;
+
+data.typeaheadSearchWidget = $sp.getWidget('typeahead-search', options);
+data.breadcrumbsWidget = $sp.getWidget('breadcrumbs');
+data.limit_group = options.max_group || 15;
+data.limit_all = options.max_all || 30;
+data.showTypeaheadSearch = options.show_typeahead_search == "true";
+data.portalID = $sp.getPortalRecord().getUniqueValue();
+
+var portalID = $sp.getPortalRecord().getUniqueValue();
+var searchSources = $sp.getSearchSources(portalID);
+var i = 0;
+searchSources.forEach(function(searchSource) {
+	data.resultTemplates["sp-search-source-" + searchSource.id + ".html"] = $sp.translateTemplate(searchSource.template);
+	data.searchSources[searchSource.id] = {
+		name: searchSource.name,
+		id: searchSource.id,
+		order: i++
+	};
+	data.searchSourceConfiguration[searchSource.id] = searchSource.sys_id;
+});
+
+if (data.t) {
+	data.t_label = data.searchSources[data.t].name;
+} else {
+	data.t_label = gs.getMessage("All");
+}
+]]&gt;&lt;/script&gt;&lt;servicenow&gt;true&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-24 00:26:59&lt;/sys_created_on&gt;&lt;sys_id&gt;12fbe2d287330300a785940307cb0b1b&lt;/sys_id&gt;&lt;sys_mod_count&gt;497&lt;/sys_mod_count&gt;&lt;sys_name&gt;Faceted Search&lt;/sys_name&gt;&lt;sys_package display_value="Service Portal - Core" source="com.glide.service-portal"&gt;8dc93b271b1610108778ed3abc4bcbcb&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_12fbe2d287330300a785940307cb0b1b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2019-06-19 10:00:40&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+  &lt;div&gt;
+  		&lt;div class="row header"&gt;
+      &lt;div class="hidden-xs col-md-8"&gt;
+        &lt;sp-widget widget="data.breadcrumbsWidget"&gt;&lt;/sp-widget&gt;
+      &lt;/div&gt;
+      &lt;div class="col-md-4" ng-if="data.showTypeaheadSearch"&gt;
+        &lt;sp-widget widget="data.typeaheadSearchWidget"&gt;&lt;/sp-widget&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-sm-3 hidden-xs"&gt;
+        &lt;sp-search-nav search-sources="data.searchSources" q="data.q" t="data.t"&gt;&lt;/sp-search-nav&gt;
+        &lt;sp-facet-lists collapsed="collpaseFacets" list-title="options.facet_list_title" search-sources="data.searchSources" t="data.t"&gt;&lt;/sp-facet-lists&gt;
+		&lt;/div&gt;
+      &lt;div class="col-sm-9"&gt;
+        &lt;div class="panel panel-default"&gt;
+          &lt;div ng-if="isLoading || results.length&gt;0" class="panel-heading flex"&gt;
+            &lt;h2 class="h4 panel-title results-heading" tabindex="-1"&gt;{{t_label}} ${ results for '{{data.q}}'}&lt;/h2&gt;
+            &lt;button class="btn btn-link hidden visible-xs pull-right" aria-label="${Filter}" ng-class="{'filter-icon': !isFilterApplied}" ng-click="openFilterMenu()"&gt;&lt;fa name="filter" /&gt;&lt;/button&gt;
+          &lt;/div&gt;
+            &lt;div ng-if="data.pills &amp;&amp; data.pills.length&gt;0" class="panel-heading flex break-word hidden-xs facet-pill-container"&gt;
+               &lt;div class="h4 panel-title pills"&gt;
+                &lt;span class="pills-label"&gt;${Filtering by}&lt;/span&gt;
+                &lt;div&gt;
+                  &lt;sp-facet-pill facet="pill" ng-repeat="pill in data.pills"&gt;&lt;/sp-facet-pill&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div&gt;
+                  &lt;button class="btn btn-link" ng-click="clearAll()" aria-label="${Clear all active facets}"&gt;${Clear All}&lt;/button&gt;
+          		&lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;div ng-show="isLoading" class="loading-icon"&gt;
+            &lt;i class="fa fa-spinner fa-spin fa-3x fa-fw" style="font-size:24px"&gt;&lt;/i&gt;
+            &lt;div class=""&gt;${Hold on, your results are loading}...&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div ng-show="!isLoading" class="panel-default"&gt;
+            &lt;div ng-if="results.length==0" class="panel-default"&gt;
+              &lt;div class="panel-heading"&gt;
+                &lt;h2 class="h4 panel-title results-heading" tabindex="-1"&gt;${No results}&lt;/h2&gt;
+                &lt;button ng-if="showFilterIcon" class="btn btn-link hidden visible-xs pull-right" ng-class="{'filter-icon': !isFilterApplied}" ng-click="openFilterMenu()"&gt;&lt;fa name="filter" /&gt;&lt;/button&gt;
+              &lt;/div&gt;
+              &lt;div class="panel-body wrapper break-word"&gt;
+                &lt;p&gt;${Your search - &lt;b&gt;{{data.q}}&lt;/b&gt; - did not match any documents}&lt;/p&gt;
+                &lt;div ng-if="options.show_did_you_mean &amp;&amp; data.suggestions.length &gt; 0"&gt;
+                  ${Did you mean}:
+                  &lt;ul&gt;
+                    &lt;li ng-repeat="term in data.suggestions track by $index"&gt;
+                      &lt;a href="javascript:void(0)" ng-click="search(term)"&gt;{{term}}&lt;/a&gt;
+                    &lt;/li&gt;
+                  &lt;/ul&gt;
+                &lt;/div&gt;
+                &lt;p ng-if="options.show_did_you_mean &amp;&amp; data.suggestions.length &gt; 0"&gt;${Other suggestions}:&lt;/p&gt;
+                &lt;p ng-if="!options.show_did_you_mean || data.suggestions.length == 0"&gt;${Suggestions}:&lt;/p&gt;
+                &lt;ul&gt;
+                  &lt;li&gt;${Make sure all words are spelled correctly}&lt;/li&gt;
+                  &lt;li&gt;${Try different, more general, or fewer keywords}&lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div ng-if="results.length&gt;0" ng-class="{'search-result-xs': smallScreenSize}"&gt;
+              &lt;div role="list"&gt;
+              &lt;div role="listitem" ng-repeat="item in results" class="panel-body b-b result-item"&gt;
+                &lt;div ng-include="item.templateID" data-index="{{$index}}"&gt;&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;/div&gt;
+             &lt;div role="contentinfo" class="panel-body b-b"&gt;
+                &lt;div class="pagination-section"&gt;
+                  &lt;span ng-if="showPagination &amp;&amp; showLoadMore"&gt;&lt;button type="button" class="btn btn-link" aria-label="${Load more results}" ng-click="fetchMoreResults(query_start_location)"&gt;${Load more results}&lt;/button&gt;&lt;/span&gt;
+                  &lt;span ng-if="showPagination &amp;&amp; !showLoadMore" aria-label="${End of results}"&gt;${End of results}&lt;/span&gt;
+                  &lt;span ng-if="!showPagination" aria-label="{{endPagination}}"&gt;{{endPagination}}&lt;/span&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="hidden search-overlay panel panel-default list-view" ng-class="{'visible-xs': showFilterMenu}"&gt;
+    &lt;div class="panel-heading header"&gt;
+      &lt;span&gt;
+        &lt;button class="btn btn-link clear pull-left" ng-click="cancel()" aria-label="${Cancel}"&gt;${Cancel}&lt;/button&gt;
+      &lt;/span&gt;
+      &lt;span style="visibility: hidden;"&gt;
+        ${results}
+      &lt;/span&gt;
+      &lt;span&gt;
+        &lt;button class="btn btn-link pull-right"  ng-class="{'disabled': !showApply}" ng-click="apply()" aria-label="${Done}"&gt;${Done}&lt;/button&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;sp-search-nav show-toggle="true" list-view="true" search-sources="data.searchSources" q="data.q" t="data.t"&gt;&lt;/sp-search-nav&gt;
+    &lt;sp-facet-lists collapsed="true" collapsed-searchsource="collpaseFacets" toggle-searchsource="true" list-title="options.facet_list_title" search-sources="data.searchSources" t="data.t"&gt;&lt;/sp-facet-lists&gt;
+  &lt;/div&gt;
+  &lt;div class="hidden search-overlay search-filter-menu" ng-class="{'visible-xs': showFilterMenu &amp;&amp; isFilterMenuLoading}"&gt;
+    &lt;div class="loading-icon"&gt;
+      &lt;i class="fa fa-spinner fa-spin fa-3x fa-fw" style="font-size:24px"&gt;&lt;/i&gt;
+      &lt;div class=""&gt;${Hold on, your filters are loading}...&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-24 17:05:52</sys_created_on>
+        <sys_id>831d4a4c1b2310108778ed3abc4bcb4e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>3a1d4a4c1b2310108778ed3abc4bcb4a</sys_name>
+        <sys_package display_value="mySource" source="x_364774_mysource">7b19f8001be250108778ed3abc4bcb60</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="mySource">7b19f8001be250108778ed3abc4bcb60</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_831d4a4c1b2310108778ed3abc4bcb4e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-24 17:05:52</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>
